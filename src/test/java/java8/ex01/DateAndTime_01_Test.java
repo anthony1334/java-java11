@@ -18,12 +18,16 @@ public class DateAndTime_01_Test {
     public void test_date() {
 
         // TODO modifier les paramètres pour que le test soit passant
-        Date date = new Date(0, 0, 0, 0,0,0);
+        Date date = new Date(117, Calendar.MARCH, 24, 1,2, 3);
 
         assertThat(date.toString(), is("Fri Mar 24 01:02:03 CET 2017"));
 
         // une date est mutable... :-(
         // TODO modifier le jour de la date pour que le test soit passant
+        Calendar cal = Calendar.getInstance();
+        cal.set(2017,3,24,1,2,3);
+        cal.set(Calendar.DAY_OF_MONTH, 25);
+         date = cal.getTime();
 
         assertThat(date.toString(), is("Sat Mar 25 01:02:03 CET 2017"));
     }
